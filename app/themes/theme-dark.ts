@@ -20,7 +20,15 @@ export const basicThemeDark = createTheme(
       }
       },
     components: {
-      
+      MuiAppBar: {
+        defaultProps: {},
+        styleOverrides: {
+          root: {
+            backgroundColor: 'var(--auxiliar1)',
+            opacity: 1
+          }
+        }
+      }
     }
   }
 )

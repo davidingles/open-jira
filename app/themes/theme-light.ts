@@ -8,7 +8,7 @@ export const basicThemeLight = createTheme(
         mode: 'light',
         background:
           {
-            default: grey[900]
+            default: grey[100]
           },
         primary:
       {

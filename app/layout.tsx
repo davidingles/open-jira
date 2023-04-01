@@ -2,6 +2,9 @@
 import './globals.css'
 import { ThemeProvider, CssBaseline } from '@mui/material'
 import { basicThemeLight, basicThemeDark } from './themes'
+import { Navbar } from './components/Navbar'
+import { SideBar } from './components/SideBar'
+import { ProviderNavbar } from './contexto/ctxUi/ProviderNavbar'
 
 export default function RootLayout({
   children,
@@ -23,10 +26,14 @@ export default function RootLayout({
       </head>
 
       <body>
-        <ThemeProvider theme={basicThemeDark}>
-          <CssBaseline />
-            {children}
-        </ThemeProvider>
+        <ProviderNavbar>
+          <ThemeProvider theme={basicThemeDark}>
+            <CssBaseline />
+              <Navbar />
+              <SideBar />
+              {children}
+          </ThemeProvider>
+        </ProviderNavbar>
       </body>
     </html>
   )
