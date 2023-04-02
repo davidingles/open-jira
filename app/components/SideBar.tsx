@@ -5,6 +5,7 @@ import AddLocationIcon from '@mui/icons-material/AddLocation'
 import CategoryIcon from '@mui/icons-material/Category'
 import { ContextoNavbar } from '../contexto/ctxUi/ContextoNavbar'
 import MenuOpenIcon from '@mui/icons-material/MenuOpen'
+import ListIcon from '@mui/icons-material/List';
 
 
 const menuItems = ['Inicio', 'Contacto', 'Nostros', 'Servicios', 'Productos']
@@ -19,12 +20,12 @@ export const SideBar = () => {
     <Drawer
       anchor='left'
       open={menuLateral}
-      onClose={() => console.log('close')}
+      onClose={() => closeSideBar()}
     >
       <Box sx={{ paddingRight: '2rem' }}>
         <Box sx={{ padding: '5px 10px' }}>
           <Button onClick={closeSideBar}>
-            <MenuOpenIcon sx={{ width: '3rem', height: '3rem' }} />
+            <ListIcon sx={{ width: '3rem', height: '3rem' }} />
           </Button>
           <Divider />
         </Box>

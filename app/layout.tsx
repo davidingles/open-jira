@@ -5,6 +5,7 @@ import { basicThemeLight, basicThemeDark } from './themes'
 import { Navbar } from './components/Navbar'
 import { SideBar } from './components/SideBar'
 import { ProviderNavbar } from './contexto/ctxUi/ProviderNavbar'
+import { ProviderEntradas } from './contexto/ctxEntries/ProviderEntradas'
 
 export default function RootLayout({
   children,
@@ -26,14 +27,16 @@ export default function RootLayout({
       </head>
 
       <body>
-        <ProviderNavbar>
-          <ThemeProvider theme={basicThemeDark}>
-            <CssBaseline />
-              <Navbar />
-              <SideBar />
-              {children}
-          </ThemeProvider>
-        </ProviderNavbar>
+        <ProviderEntradas>
+          <ProviderNavbar>
+            <ThemeProvider theme={basicThemeDark}>
+              <CssBaseline />
+                <Navbar />
+                <SideBar />
+                {children}
+            </ThemeProvider>
+          </ProviderNavbar>
+        </ProviderEntradas>
       </body>
     </html>
   )

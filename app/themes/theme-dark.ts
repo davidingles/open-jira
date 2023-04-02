@@ -8,7 +8,7 @@ export const basicThemeDark = createTheme(
         mode: 'dark',
         background:
           {
-            default: grey[900]
+            default: 'black'
           },
         secondary:
       {
