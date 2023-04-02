@@ -4,7 +4,8 @@ import { createContext } from 'react';
 
 interface ContextProps {
 
-    entradas: Entradas[] 
+    entradas: Entradas[],
+    addNewTask: (descripcion: string) => void,
 
     }
 

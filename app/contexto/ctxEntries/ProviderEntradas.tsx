@@ -35,11 +35,26 @@ const UI_INITIAL_STATE: TipoDeEntradas = {
 
 export const ProviderEntradas:FC<Props> = ({ children }) => {
 
-const [state, dispatch] = useReducer(entradasReducer, UI_INITIAL_STATE)
+  const [state, dispatch] = useReducer(entradasReducer, UI_INITIAL_STATE)
+  
+  const addNewTask = (descripcion: string) => {
+    const newTask: Entradas  = {
+      _id: uuidv4(),
+      descripcion,
+      fechaCreacion: Date.now(),
+      estado: 'pendiente',
+    }
+    dispatch({
+      type: 'Nueva_Entrada',
+      payload: newTask
+    })
+  }
 
  return (
    <ContextoEntradas.Provider value={{
      ...state,
+     //methods
+      addNewTask,
    }}>
     {children}
    </ContextoEntradas.Provider>
