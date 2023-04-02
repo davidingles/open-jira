@@ -5,5 +5,5 @@ export interface Entradas {
   estado: EntradaEstado;
 }
 
-type EntradaEstado = 'pendiente' | 'en progreso' | 'terminado';
+export type EntradaEstado = 'pendiente' | 'en progreso' | 'terminado';
 

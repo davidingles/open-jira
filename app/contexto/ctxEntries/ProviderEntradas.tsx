@@ -14,20 +14,20 @@ const UI_INITIAL_STATE: TipoDeEntradas = {
   entradas: [
     {
       _id: uuidv4(),
-      descripcion: 'Entrada 1',
-      fechaCreacion: Date.now(),
+      descripcion: 'Entrada 1 en progreso',
+      fechaCreacion: 1,
       estado: 'en progreso',
    },
     {
       _id: uuidv4(),
       descripcion: 'Entrada 2',
-      fechaCreacion: Date.now() - 1000 * 60 * 60 * 24 * 2,
+      fechaCreacion: /* Date.now() - 1000 * 60 * 60 * 24 * 2 */ 2,
       estado: 'pendiente',
    },
     {
       _id: uuidv4(),
       descripcion: 'Entrada 3',
-      fechaCreacion: Date.now() - 1000 * 60 * 60 * 24 * 3,
+      fechaCreacion: /* Date.now() - 1000 * 60 * 60 * 24 * 3 */ 3,
       estado: 'terminado',
    },
  ],
@@ -37,8 +37,6 @@ export const ProviderEntradas:FC<Props> = ({ children }) => {
 
 const [state, dispatch] = useReducer(entradasReducer, UI_INITIAL_STATE)
 
-  console.log(state);
-  
  return (
    <ContextoEntradas.Provider value={{
      ...state,
