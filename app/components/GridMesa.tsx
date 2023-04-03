@@ -19,7 +19,7 @@ export const GridMesa = () => {
         <Card sx={{ height: 'calc( 100vh - 222px)' }}>
           <CardHeader title='En Progreso' />
           <Typography variant='h3' color='secondary'>
-            <ListaDeEntradas status='En Progreso' />
+            <ListaDeEntradas status='en progreso' />
           </Typography>
         </Card>
       </Grid>

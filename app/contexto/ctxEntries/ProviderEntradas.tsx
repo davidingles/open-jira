@@ -50,11 +50,17 @@ export const ProviderEntradas:FC<Props> = ({ children }) => {
       payload: addNewTarea,
     })
   }
-
+  const onEntradaActualizada = ( entrada: Entradas ) => {
+    dispatch({
+      type: 'TareaActualizada',
+      payload: entrada,
+    })  
+  }
  return (
    <ContextoEntradas.Provider value={{
      ...state,
-      addTarea,
+     addTarea,
+     onEntradaActualizada,
    }}>
     {children}
    </ContextoEntradas.Provider>

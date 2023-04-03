@@ -13,7 +13,6 @@ export const CardDeTareas: FC<Props> = ({ entrada }) => {
   const { estadoArrastrando, estadoCanceloArrastrando} = useContext(ContextoNavbar)
 
   const arrastro = ( event: DragEvent<HTMLDivElement>) => {
-    console.log(event);
     event.dataTransfer.setData('text', entrada._id)
     estadoArrastrando()
   }

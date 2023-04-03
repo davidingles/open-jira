@@ -1,6 +1,6 @@
 'use client'
 
-import { Button, Typography, Box, Grid } from '@mui/material'
+import { Box } from '@mui/material'
 import { GridMesa } from './components/GridMesa'
 
 const PageHome = () => {
