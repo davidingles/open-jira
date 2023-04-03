@@ -11,7 +11,7 @@ export const GridMesa = () => {
           <CardHeader title='Pendientes' />
           <NuevaEntrada />
           <Typography variant='h3' color='secondary'>
-            <ListaDeEntradas status='en progreso' />
+            <ListaDeEntradas status='pendiente' />
           </Typography>
         </Card>
       </Grid>
@@ -19,7 +19,7 @@ export const GridMesa = () => {
         <Card sx={{ height: 'calc( 100vh - 222px)' }}>
           <CardHeader title='En Progreso' />
           <Typography variant='h3' color='secondary'>
-            <ListaDeEntradas status='pendiente' />
+            <ListaDeEntradas status='En Progreso' />
           </Typography>
         </Card>
       </Grid>

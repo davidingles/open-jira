@@ -14,15 +14,15 @@ const UI_INITIAL_STATE: TipoDeEntradas = {
   entradas: [
     {
       _id: uuidv4(),
-      descripcion: 'Entrada 1 en progreso',
-      fechaCreacion: 1,
-      estado: 'en progreso',
-   },
-    {
-      _id: uuidv4(),
       descripcion: 'Entrada 2',
       fechaCreacion: /* Date.now() - 1000 * 60 * 60 * 24 * 2 */ 2,
       estado: 'pendiente',
+   },
+    {
+      _id: uuidv4(),
+      descripcion: 'Entrada 1 en progreso',
+      fechaCreacion: 1,
+      estado: 'en progreso',
    },
     {
       _id: uuidv4(),
@@ -35,11 +35,26 @@ const UI_INITIAL_STATE: TipoDeEntradas = {
 
 export const ProviderEntradas:FC<Props> = ({ children }) => {
 
-const [state, dispatch] = useReducer(entradasReducer, UI_INITIAL_STATE)
+  const [state, dispatch] = useReducer(entradasReducer, UI_INITIAL_STATE)
+  
+  const addTarea = (descripcion: string) => {
+    const addNewTarea:Entradas = {
+      _id: uuidv4(),
+      descripcion: descripcion,
+      fechaCreacion: Date.now(),
+      estado: 'pendiente',
+    }
+    
+    dispatch({
+      type: 'addTarea',
+      payload: addNewTarea,
+    })
+  }
 
  return (
    <ContextoEntradas.Provider value={{
      ...state,
+      addTarea,
    }}>
     {children}
    </ContextoEntradas.Provider>

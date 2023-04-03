@@ -3,13 +3,17 @@ import { ContextoNavbar} from './ContextoNavbar'
 import { uiReducer} from './uiReducer'
 
 export interface UIState {
- menuLateral: boolean;
+  menuLateral: boolean;
+  isAdding: boolean;
+  isArrastrando: boolean;
 }
 interface navProps {
  children?: React.ReactNode;
 }
 const UI_INITIAL_STATE: UIState = {
- menuLateral: false,
+  menuLateral: false,
+  isAdding: false,
+  isArrastrando: false,
 }
 
 export const ProviderNavbar:FC<navProps> = ({ children }) => {
@@ -22,9 +26,25 @@ export const ProviderNavbar:FC<navProps> = ({ children }) => {
   const closeSideBar = () => {
     dispatch({ type: 'UI-CLOSE-SIDEBAR' })
   }
+  const setIsAdding = (value: boolean) => {
+    dispatch({ type: 'ABRE_VENTANA_TEXTO', payload: value })
+  }
+  const estadoArrastrando = () => {
+    dispatch({ type: 'ARRASTRANDO' })
+  }
+  const estadoCanceloArrastrando = () => {
+    dispatch({ type: 'CANCELAR_ARRASTRANDO' })
+  }
 
  return (
-   <ContextoNavbar.Provider value={{...state, openSideBar, closeSideBar}}>
+   <ContextoNavbar.Provider value={{
+     ...state,
+     openSideBar,
+     closeSideBar,
+     setIsAdding,
+     estadoArrastrando,
+     estadoCanceloArrastrando,
+   }}>
     {children}
    </ContextoNavbar.Provider>
 )

@@ -5,6 +5,7 @@ import { createContext } from 'react';
 interface ContextProps {
 
     entradas: Entradas[] 
+    addTarea: (descripcion: string) => void
 
     }
 

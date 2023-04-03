@@ -2,10 +2,16 @@
 import { Box, Button, TextField } from '@mui/material'
 import SaveTwoToneIcon from '@mui/icons-material/SaveTwoTone'
 import AddCircleOutlineTwoToneIcon from '@mui/icons-material/AddCircleOutlineTwoTone'
-import { ChangeEvent, useState } from 'react'
+import { ChangeEvent, useState, useContext } from 'react';
+import { ContextoEntradas } from '../contexto/ctxEntries/ContextoEntradas';
+import { ContextoNavbar } from '../contexto/ctxUi/ContextoNavbar';
 
 export const NuevaEntrada = () => {
-  const [isAdding, setIsAdding] = useState(true)
+
+  const { addTarea } = useContext(ContextoEntradas)
+  const { isAdding, setIsAdding} = useContext(ContextoNavbar)
+
+  // const [isAdding, setIsAdding] = useState(true)
   const [inputValue, setInputValue] = useState('')
   const [touched, setTouched] = useState(false)
   const textChange = ( event: ChangeEvent<HTMLInputElement>) => {
@@ -14,6 +20,7 @@ export const NuevaEntrada = () => {
   const onSave = () => {
     if (inputValue.trim().length <= 0) return
     console.log(inputValue)
+    addTarea(inputValue)
     setInputValue('')
     setTouched(false)
   }
